@@ -34,4 +34,4 @@ jobs:
       with:
         context: src/checkoutservice/
         push: true
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/${{env.REPO_NAME}}:${{steps.tag.outputs.tag}}
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/${{env.REPO_NAME}}/checkoutservice:${{steps.tag.outputs.tag}}
