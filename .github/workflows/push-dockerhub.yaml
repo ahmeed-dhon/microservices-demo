@@ -32,7 +32,6 @@ jobs:
     - name: build and push docker image to registry
       uses: docker/build-push-action@v5
       with:
-        context: .
-        file: src/checkoutservice/Dockerfile
+        context: src/checkoutservice/
         push: true
         tags: ${{secrets.DOCKERHUB_USERNAME}}/${{env.REPO_NAME}}:${{steps.tag.outputs.tag}}
