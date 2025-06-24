@@ -33,6 +33,6 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: src/adservice/Dockerfile
+        file: src/checkoutservice/Dockerfile
         push: true
         tags: ${{secrets.DOCKERHUB_USERNAME}}/${{env.REPO_NAME}}:${{steps.tag.outputs.tag}}
