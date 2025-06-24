@@ -9,12 +9,6 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Get repo name
-      run: |
-        echo "${{github.repository}}" | cut -d "/" -f 2 > repo.txt
-        echo "REPO_NAME=$(cat repo.txt)" >> $GITHUB_ENV
-        rm -rf repo.txt
-
     # checkout the repo
     - name: 'Checkout Github Action'
       uses: actions/checkout@master
@@ -34,4 +28,4 @@ jobs:
       with:
         context: src/checkoutservice/
         push: true
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/${{env.REPO_NAME}}/checkoutservice:${{steps.tag.outputs.tag}}
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/ms-demo-checkoutservice:${{steps.tag.outputs.tag}}
