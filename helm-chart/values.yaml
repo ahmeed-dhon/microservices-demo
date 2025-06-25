@@ -25,14 +25,14 @@ checkoutImage:
   repository: ahmeeddhon/ms-demo-checkoutservice
   tag: v0.0.5-dockerhub
   annotations:
-    vault-inject: true
-    vault-inject-status: update
-    vault-inject-secret-name: secret/some-secret
-    vault-inject-template-name: |
+    vaultInject: true
+    vaultInjectStatus: update
+    vaultInjectSecretName: secret/some-secret
+    vaultInjectTemplateName: |
       {{- with secret "secret/some-secret" -}}
       secret-key={{ .Data.data.secret-key }}
       {{- end }}
-    vault-role: vault-role
+    vaultRole: vault-role
 
 hpa:
   minReplicas: 2
