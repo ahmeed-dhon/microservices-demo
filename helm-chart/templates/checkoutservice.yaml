@@ -18,6 +18,8 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: {{ .Values.checkoutService.name }}
+  labels: 
+    app: {{ .Values.checkoutService.name }}
   namespace: {{.Release.Namespace}}
   {{- if not .Values.serviceAccounts.annotationsOnlyForCartservice }}
   {{- with .Values.serviceAccounts.annotations }}

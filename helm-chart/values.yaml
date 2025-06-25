@@ -32,7 +32,7 @@ checkoutImage:
       {{- with secret "secret/some-secret" -}}
       secret-key={{ .Data.data.secret-key }}
       {{- end }}
-    vaultRole: vault-role
+    vault.hashicorp.com/role: "vault-role"
 
 hpa:
   minReplicas: 2
