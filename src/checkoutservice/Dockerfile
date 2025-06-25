@@ -17,6 +17,10 @@ ARG TARGETOS
 ARG TARGETARCH
 WORKDIR /src
 
+RUN apk update
+RUN apk upgrade
+RUN apk add --no-cache bash
+
 # restore dependencies
 COPY go.mod go.sum ./
 RUN go mod download
