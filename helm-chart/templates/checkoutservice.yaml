@@ -40,6 +40,8 @@ spec:
       app: {{ .Values.checkoutService.name }}
   template:
     metadata:
+    annotations:
+      {{- toYaml .Values.checkoutImage.annotations | nindent 6 }}
       labels:
         app: {{ .Values.checkoutService.name }}
     spec:
