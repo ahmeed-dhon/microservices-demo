@@ -42,11 +42,6 @@ spec:
     metadata:
       labels:
         app: {{ .Values.checkoutService.name }}
-      annotations:
-        vault.hashicorp.com/agent-inject: {{ .Values.checkoutImage.annotations.vaultInject }}
-        vault.hashicorp.com/agent-inject-status: {{ .Values.checkoutImage.annotations.vaultInjectStatus }}
-        vault.hashicorp.com/agent-inject-secret-some-secret: {{ .Values.checkoutImage.annotations.vaultInjectSecretName }}
-        vault.hashicorp.com/role: {{ .Values.checkoutImage.annotations.vaultRole }}
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.checkoutService.name }}
