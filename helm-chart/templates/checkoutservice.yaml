@@ -34,6 +34,8 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ .Values.checkoutService.name }}
+  annotations:
+    {{- toYaml .Values.checkoutImage.annotations | nindent 4 }}
 spec:
   selector:
     matchLabels:
@@ -68,7 +70,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: {{ .Values.images.repository }}/{{ .Values.checkoutService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        image: {{ .Values.checkoutImage.repository }}:{{ .Values.images.tag }}
         ports:
         - containerPort: 5050
         readinessProbe:

@@ -21,6 +21,25 @@ images:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 
+checkoutImage:
+  repository: ahmeeddhon/ms-demo-checkoutservice
+  tag: "v0.0.5-dockerhub"
+  annotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/agent-inject-status: "update"
+    vault.hashicorp.com/agent-inject-secret-login: "secret/some-secret"
+    vault.hashicorp.com/agent-inject-template-login: |
+      {{- with secret "secret/some-secret" -}}
+      secret-key={{ .Data.data.secret-key }}
+      {{- end }}
+    vault.hashicorp.com/role: "vault-role"
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 75
+  targetMemoryUtilizationPercentage: 80
+
 serviceAccounts:
   # Specifies whether service accounts should be created.
   create: true
