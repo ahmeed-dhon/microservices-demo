@@ -27,10 +27,10 @@ checkoutImage:
   annotations:
     vault.hashicorp.com/agent-inject: "true"
     vault.hashicorp.com/agent-inject-status: "update"
-    vault.hashicorp.com/agent-inject-secret-some-secret: "secret/some-secret"
-    vault.hashicorp.com/agent-inject-template-some-secret: |
-      {{- with secret "secret/some-secret" -}}
-      secret-key={{ .Data.data.secret-key }}
+    vault.hashicorp.com/agent-inject-secret-test: "secret/test"
+    vault.hashicorp.com/agent-inject-template-test: |
+      {{- with secret "secret/test" -}}
+      key={{ .Data.data.key }}
       {{- end }}
     vault.hashicorp.com/role: "vault-role"
 
