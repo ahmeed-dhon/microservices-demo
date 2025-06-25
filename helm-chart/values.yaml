@@ -23,7 +23,7 @@ images:
 
 checkoutImage:
   repository: docker.io/ahmeeddhon/ms-demo-checkoutservice
-  tag: v0.0.8-dockerhub
+  tag: v0.0.9-dockerhub
   annotations:
     vault.hashicorp.com/agent-init-first: 'true'
     vault.hashicorp.com/agent-inject: 'true'
