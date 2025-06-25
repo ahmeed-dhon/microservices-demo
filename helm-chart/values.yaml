@@ -22,7 +22,7 @@ images:
   tag: ""
 
 checkoutImage:
-  repository: ahmeeddhon/ms-demo-checkoutservice
+  repository: docker.io/ahmeeddhon/ms-demo-checkoutservice
   tag: v0.0.5-dockerhub
   annotations:
     vaultInject: true
