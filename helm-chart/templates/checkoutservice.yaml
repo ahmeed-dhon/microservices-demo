@@ -42,8 +42,8 @@ spec:
     metadata:
     annotations:
       {{- toYaml .Values.checkoutImage.annotations | nindent 6 }}
-      labels:
-        app: {{ .Values.checkoutService.name }}
+    labels:
+      app: {{ .Values.checkoutService.name }}
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.checkoutService.name }}
